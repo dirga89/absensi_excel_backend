@@ -40,7 +40,11 @@ const uploadXLSX = async (req, res, next) => {
   });
   
   const upload = multer({ storage: storage });
-  
+
+  app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
   app.post("/upload", upload.single("xlsx"), uploadXLSX);
 
 app.listen(PORT, () => {
